@@ -1,0 +1,39 @@
+<h1>confirmation d'élève</h1>
+<table>
+    <tr> 
+        <th> NOM </th>
+        <td> <%= @student.first_name %> </td>
+    </tr>
+    <tr> 
+        <th> PRENOM </th>
+        <td> <%= @student.last_name %> </td>
+    </tr>
+    <tr> 
+        <th> MATRICULE </th>
+        <td> <%= @student.matricule %> </td>
+    </tr>
+    <tr> 
+        <th> SEXE </th>
+        <td> <%= @student.sexe %> </td>
+    </tr>
+    <tr> 
+        <th> DATE DE NAISSANCE </th>
+        <td> <%= @student.birth_date %> </td>
+    </tr>
+   
+</table>
+
+
+<%= form_with(model: @student, local: true , url: students_path) do |form| %>
+     
+    <%= form.hidden_field :first_name %>
+    <%= form.hidden_field :last_name %>
+    <%= form.hidden_field :matricule %>
+    <%= form.hidden_field :birth_date %>
+    <%= form.hidden_field :sexe %>   
+  <br>
+    <%= form.submit  "Enregistrer" %>
+    <%= form.submit  "Retour" , name: 'Retour' %>
+
+<% end %>
+<br>
